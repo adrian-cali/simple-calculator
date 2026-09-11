@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Calc — a modern calculator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <main class="calculator-card" role="region" aria-label="Calculator">
+    <div class="cal-header">
+      <span class="cal-title">Calc</span>
+      <button class="icon-btn history-toggle" id="historyToggle" aria-label="Show calculation history" aria-expanded="false" aria-controls="historyPanel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="8"></circle>
+          <path d="M12 8v4l2.5 2.5"></path>
+        </svg>
+      </button>
+    </div>
+
+    <div class="display" id="display" aria-live="polite">
+      <div class="expression" id="expression">&nbsp;</div>
+      <div class="result" id="result">0</div>
+    </div>
+
+    <div class="keypad" role="group" aria-label="Calculator buttons">
+      <button class="key fn" data-action="clear" aria-label="All clear">AC</button>
+      <button class="key fn" data-action="sign" aria-label="Toggle positive or negative">±</button>
+      <button class="key fn" data-action="percent" aria-label="Percent">%</button>
+      <button class="key op" data-action="op" data-op="÷" aria-label="Divide">÷</button>
+
+      <button class="key" data-action="digit" data-digit="7" aria-label="Seven">7</button>
+      <button class="key" data-action="digit" data-digit="8" aria-label="Eight">8</button>
+      <button class="key" data-action="digit" data-digit="9" aria-label="Nine">9</button>
+      <button class="key op" data-action="op" data-op="×" aria-label="Multiply">×</button>
+
+      <button class="key" data-action="digit" data-digit="4" aria-label="Four">4</button>
+      <button class="key" data-action="digit" data-digit="5" aria-label="Five">5</button>
+      <button class="key" data-action="digit" data-digit="6" aria-label="Six">6</button>
+      <button class="key op" data-action="op" data-op="−" aria-label="Subtract">−</button>
+
+      <button class="key" data-action="digit" data-digit="1" aria-label="One">1</button>
+      <button class="key" data-action="digit" data-digit="2" aria-label="Two">2</button>
+      <button class="key" data-action="digit" data-digit="3" aria-label="Three">3</button>
+      <button class="key op" data-action="op" data-op="+" aria-label="Add">+</button>
+
+      <button class="key zero" data-action="digit" data-digit="0" aria-label="Zero">0</button>
+      <button class="key" data-action="decimal" aria-label="Decimal point">.</button>
+      <button class="key equals" data-action="equals" aria-label="Equals">=</button>
+    </div>
+  </main>
+
+  <aside class="history-card" id="historyPanel" aria-label="Calculation history">
+    <div class="history-head">
+      <h2>History</h2>
+      <button class="clear-history-btn" id="clearHistory">Clear</button>
+    </div>
+    <div class="history-list" id="historyList">
+      <div class="history-empty">No calculations yet</div>
+    </div>
+    <p class="history-note">Saved for this session only — history clears on reload.</p>
+  </aside>
+
+</div>
+
+<div class="history-backdrop" id="historyBackdrop"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
